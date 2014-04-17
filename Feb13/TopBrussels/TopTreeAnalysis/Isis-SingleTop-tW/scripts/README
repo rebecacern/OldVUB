@@ -1,0 +1,73 @@
+
+To run the code living in SingleTop-tW:
+(Summer12 release)
+
+(there should be a /lib/ folder in the home, if it is not, 
+mkdir ~/lib
+will do)
+
+//Check out the package
+cvs co -r CMSSW_52X -d TopBrussels UserCode/TopBrussels
+cd TopBrussels/TopTreeProducer
+cd src
+
+//Compile the TopTreeProducer (to define the strutures of the TopTrees and your objects)
+make clean
+make 
+
+//Now go specifically to the Analysis and compile it (for tools like Selection)
+cd ../../TopTreeAnalysis
+make clean
+make -j8 all
+
+//Then create the folder for the outputs
+mkdir SingleTop-tW/outputs
+
+// And link it in the scripts
+cd SingleTop-tW/scripts
+ln -s ../outputs/ outputs
+
+//Another folder inside scripts for the resulting rootfiles
+mkdir results
+cd -
+
+//And compile the main code 
+make macros/../SingleTop-tW/SingleToptW.exe
+
+//Then go inside
+cd SingleTop-tW/
+
+//modify the .xml files to the right paths of the files, and that's it:
+
+./SingleToptW.exe --emu
+
+(everything should run directly)
+
+
+To run in the background (best choice always):
+
+nohup ./SingleToptW.exe --mumu > mumu.txt&
+
+tail -f mumu.txt
+
+
+Once all have run:
+
+cd scripts
+sh merge.sh
+
+to run:
+
+sh emu.csh
+
+(all the final states run.csh)
+
+mkdir plots
+mkdor plots/pdf/
+
+To do the plots:
+
+root.exe plotmaker.C
+
+
+

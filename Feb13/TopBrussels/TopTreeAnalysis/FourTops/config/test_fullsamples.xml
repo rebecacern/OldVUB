@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<datasets>
+
+ <d name="Data"     title="Data"    add="1"   color="1"  ls="1"  lw="2" normf="1" xsection="1."  EqLumi="10116.08" filenames="/user/keaveney/public/SingleMu/SingleMu/13102012_162648/*.root,/user/keaveney/public/SingleMu/SingleMu/14102012_194735/*.root ,/user/keaveney/public/SingleMu/SingleMu/14102012_202652/*.root  ,/user/keaveney/public/SingleMu/SingleMu/14102012_204902/*.root ,/user/keaveney/public/SingleMu/SingleMu/14102012_210204/*.root"/>
+
+ <d name="TTTT" title="SM tttt "  add="0"   color="40" ls="1"  lw="2" normf="1"  EqLumi="99994000" xsection=".0001" PreselEff="0.0" filenames="/user/keaveney/public/SingleMu/TTTT/*.root"/>
+
+    
+<d name="T1TTTT" title="T1 tttt "  add="0"   color="47" ls="1"  lw="2" normf="1"  EqLumi="480000" xsection=".0025" PreselEff="0.0" filenames="/Users/Seamus/CMS/TopTrees/53X/Incl/T1tttt/*.root"/>
+
+ <d name="WJets"    title="W\rightarrow l\nu + 4j"  add="1"   color="413" ls="1"  lw="2" normf="1"  EqLumi="47375.58" xsection="255.232" PreselEff="0.0"  filenames="/user/keaveney/public/SingleMu/WJets_4J/*.root"/>
+
+<d name="ZJets"    title="Z\rightarrow ll"    add="0"   color="858" ls="1"  lw="2" normf="1" EqLumi="307.63" xsection="3503.2" PreselEff="0.0"  filenames="/Users/Seamus/CMS/TopTrees/53X/SingleMu/DoubleMu/ZJets_2035/*.root"/>
+
+<!-- MultiJets cross sections from prep page http://cms.cern.ch/iCMS/prep/requestmanagement?dsn=*QCD_Pt-80to170_bEnriched*&campid=Summer12. xsection is the effective cross section for the mu enriched events (original xsection*Eff of gen-level filter) -->
+
+<d name="MultiJet"    title="MultiJet"    add="0"   color="400" ls="1"  lw="2" normf="1"  EqLumi="55.905" xsection="134680" PreselEff="0.0"   filenames="/Users/Seamus/CMS/TopTrees/MC/Mu15/*.root"/>
+
+    
+<d name="SingleTop_t"    title="SingleTop_t"   add="0"   color="7" ls="0"  lw="2" normf="1" EqLumi="7505.518" xsection="22.65" PreselEff="0.0"  filenames="/Users/Seamus/CMS/TopTrees/MC/SingleTop/*.root"/>
+
+<d name="SingleTop_tW_T"    title=" SingleTop_tW_T"   add="0"   color="7" ls="0"  lw="2" normf="1" EqLumi="44833.96" xsection="11.1" PreselEff="0.0"  filenames="/Users/Seamus/CMS/TopTrees/53X/SingleMu/T_tW/*.root"/>
+
+<d name="SingleTop_tW_TBar"    title=" SingleTop_tW_TBar"   add="0"   color="7" ls="0"  lw="2" normf="1" EqLumi="44455.68" xsection="11.1" PreselEff="0.0"  filenames="/Users/Seamus/CMS/TopTrees/53X/SingleMu/TBar_tW/*.root"/>
+
+ <d name="TTJets"         title="t\bar{t}+jets"   add="1"   color="633"  ls="1"  lw="2" normf="1"  EqLumi="30483.61" xsection="225.19"   PreselEff="0.0"   filenames="/user/keaveney/public/SingleMu/TTJets/*.root"/> 
+
+
+</datasets>
+
+<analysis>
+<a type="Collections" PVCollection="PrimaryVertex" JetType="2" JetCollection="PFJets_selectedPatJetsPF2PAT" METType="2" METCollection="PFMET_patType1CorrectedPFMetPF2PAT" MuonCollection="Muons_selectedPatMuonsPF2PAT" ElectronCollection="Electrons_selectedPatElectronsPF2PAT" loadGenJetCollection="0" GenJetCollection="GenJets_ak5GenJets" loadGenEventCollection="0" GenEventCollection="GenEvent" loadNPGenEventCollection="0" NPGenEventCollection="NPGenEvent" loadMCParticles="1" MCParticlesCollection="MCParticles" TrackMETCollection="" loadTrackMET="0"/>
+</analysis>

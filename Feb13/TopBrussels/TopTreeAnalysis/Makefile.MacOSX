@@ -1,0 +1,88 @@
+ObjSuf        = o
+SrcSuf        = cc
+ExeSuf        = 
+DllSuf        = dylib
+OutPutOpt     = -o
+HeadSuf       = h
+
+ROOTCFLAGS    = $(shell root-config --cflags)
+ROOTLIBS      = $(shell root-config --libs) -lMinuit -lMathMore -lMinuit2 -lRooFitCore -lRooFit -lFoam -lTMVA
+ROOTGLIBS     = $(shell root-config --glibs) -lMinuit -lMathMore -lMinuit2 -lRooFitCore -lRooFit -lFoam -lTMVA
+
+# Linux with egcs
+DEFINES       = -DNO_ORCA_CLASSES -I..
+CXX           = g++
+CXXFLAGS	= -O -Wall -fPIC -m64 $(DEFINES)
+LD		= g++
+LDFLAGS		= -g -O -Wall -fPIC -m64
+SOFLAGS		= -dynamiclib
+
+CXXFLAGS	+= $(ROOTCFLAGS)
+LIBS		= $(ROOTLIBS) -lEG -I.. -L. -L../TopTreeProducer/src
+# -lToto
+GLIBS		= $(ROOTGLIBS)
+#-----------------------------------------------------------------------------
+SOURCES         = $(wildcard Tools/src/*.cc StatProcedure/src/*.cc BkgEstimationMethods/src/*.cc  Selection/src/*.cc Reconstruction/src/*.cc MCInformation/src/*.cc tinyxml/*.cc KinFitter/src/*.cc JESMeasurement/src/*.cc WHelicities/src/*.cc)
+HEADERS         = $(wildcard Tools/interface/*.h StatProcedure/interface/*.h BkgEstimationMethods/interface/*.h  Selection/interface/*.h Reconstruction/interface/*.h MCInformation/interface/*.h tinyxml/*.h Kinfitter/interface/*.h JESMeasurement/interface/*.h WHelicities/interface/*.h)
+OBJECTS		= $(SOURCES:.$(SrcSuf)=.$(ObjSuf))
+DEPENDS		= $(SOURCES:.$(SrcSuf)=.d)
+SOBJECTS	= $(SOURCES:.$(SrcSuf)=.$(DllSuf))
+#for libTopTreeAnaContent.so
+SOURCESDIC	= $(wildcard Reconstruction/src/Observables.cc Reconstruction/src/MEzCalculator.cc Content/src/*.cc ../TopTreeProducer/src/TRoot*.cc JESMeasurement/src/Monster.cc JESMeasurement/src/LightMonster.cc WHelicities/src/WTree.cc)
+HEADERSDIC	= $(wildcard Content/interface/*.h ../TopTreeProducer/interface/TRoot*.h JESMeasurement/interface/Monster.h JESMeasurement/interface/LightMonster.h WHelicities/interface/WTree.h)
+OBJECTSDIC	= $(SOURCESDIC:.$(SrcSuf)=.$(ObjSuf))
+
+# headers and sources for btag eff analysis lib
+SOURCESBTAGDIC	= $(wildcard BtagEffAnalysis/src/TRoot*.cc Tools/src/MultiSamplePlot.cc Content/src/Dataset.cc)
+HEADERSBTAGDIC	= $(wildcard BtagEffAnalysis/interface/TRoot*.h Tools/interface/MultiSamplePlot.h Content/interface/Dataset.h)
+OBJECTSBTAGDIC	= $(SOURCESDIC:.$(SrcSuf)=.$(ObjSuf))
+
+SOURCESBTAG         = $(wildcard BtagEffAnalysis/src/*.cc Tools/src/MultiSamplePlot.cc Content/src/Dataset.cc Tools/src/PlottingTools.cc)
+HEADERSBTAG         = $(wildcard BtagEffAnalysis/interface/*.h Tools/interface/MultiSamplePlot.h Content/interface/Dataset.h Tools/interface/PlottingTools.h)
+OBJECTSBTAG		= $(SOURCESBTAG:.$(SrcSuf)=.$(ObjSuf))
+
+all:  libTopTreeAnaContent.dylib libTopTreeAna.dylib
+#;  cp libTopTreeAna.dylib ~/lib/ ; cp libTopTreeAnaContent.dylib ~/lib/
+
+btag: libBtagAnalysis.dylib
+
+
+clean:
+	@echo "Cleaning..."
+	@rm -f $(OBJECTS) $(OBJECTSDIC) $(OBJECTSBTAG) $(DEPENDS) macros/*.exe *Dict.* *.dylib core 
+
+.SUFFIXES: .$(SrcSuf) .C .o .so
+
+###
+
+Dict.$(SrcSuf): $(HEADERSDIC) ./LinkDef.h
+	@echo "Generating dictionary Dict..."
+	@rootcint -f Dict.$(SrcSuf) -c $(DEFINES) $(HEADERSDIC) ./LinkDef.h
+
+libTopTreeAna.dylib: $(OBJECTS) libTopTreeAnaContent.dylib
+	@echo "Building libTopTreeAna..."
+	$(LD) $(LIBS) -lTopTreeAnaContent $(SOFLAGS) $(LDFLAGS) $+ -o $@
+
+libTopTreeAnaContent.dylib: $(OBJECTSDIC)  Dict.o  
+	@echo "Building libTopTreeAnaContent..."
+	$(LD) $(LIBS) $(SOFLAGS) $(LDFLAGS) $+ -o $@
+
+# specific stuff for btag eff analysis ONLY
+
+BtagDict.$(SrcSuf): $(HEADERSBTAGDIC) ./BtagLinkDef.h
+	@echo "Generating dictionary BtagDict..."
+	@rootcint -f BtagDict.$(SrcSuf) -c $(DEFINES) $(HEADERSBTAGDIC) ./BtagLinkDef.h
+
+libBtagAnalysis.dylib: $(OBJECTSBTAG) BtagDict.o
+	@echo "Building libBtagAnalysis..."
+	$(LD) $(LIBS) $(SOFLAGS) $(LDFLAGS) $+ -o $@
+
+macros/%.exe: macros/%.cc $(HEADERS) libTopTreeAna.dylib libTopTreeAnaContent.dylib
+	$(LD) -lTopTreeAna -lTopTreeAnaContent $(LIBS) -I`root-config --incdir` $< $(LDFLAGS) -o $@
+
+SOURCES_MACROS = $(wildcard macros/*.cc)
+
+macros: $(SOURCES_MACROS:.cc=.exe)
+
+
+

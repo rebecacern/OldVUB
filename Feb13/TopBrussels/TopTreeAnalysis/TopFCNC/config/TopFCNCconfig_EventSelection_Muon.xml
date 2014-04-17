@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<datasets>
+<!--
+<d name="Data"   title="data (Run2012A)" add="1" color="2"  ls="1"  lw="2" normf="1" xsection="1." EqLumi="778.2" PreselEff="0.091485342" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/DoubleMu_Run2012A_TopTreeID_2013_Skim_DoubleMuPt20_09102012_150341_1to24.root"/>
+-->
+<d name="Data"   title="data (Run2012B)" add="1" color="2"  ls="1"  lw="2" normf="1" xsection="1." EqLumi="4340.3" PreselEff="0.087753303" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/DoubleMu_Run2012B_TopTreeID_2056_Skim_DoubleMuPt20_10102012_152948_*to*.root"/>
+
+<d name="WWJetsTo2L2Nu"   title="WW\rightarrow 2l2\nu" add="1" color="920"  ls="1"  lw="2" normf="1" xsection="5.76" PreselEff="0.058232018" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/WWJetsTo2L2Nu_TopTreeID_1999_Skim_DoubleMuPt20_26092012_163858.root"/>
+<d name="WZJetsTo2L2Q"   title="WZ\rightarrow 2l2q"   add="1" color="793" ls="1" lw="2" normf="1" xsection="2.267" PreselEff="0.121303813" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/WZJetsTo2L2Q_TopTreeID_1988_Skim_DoubleMuPt20_*to*.root"/>
+<d name="WZJetsTo3LNu"   title="WZ\rightarrow 3l\nu"  add="1" color="793" ls="1" lw="2" normf="1" xsection="1.086" PreselEff="0.159093263" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/WZJetsTo3LNu_TopTreeID_2062_Skim_DoubleMuPt20_*to*.root"/>
+<d name="ZZJetsTo2L2Q"   title="ZZ\rightarrow 2l2q"   add="1" color="880" ls="1" lw="2" normf="1" xsection="2.492" PreselEff="0.142964467" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/ZZJetsTo2L2Q_TopTreeID_1995_Skim_DoubleMuPt20_*to*.root"/>
+<d name="ZZJetsTo2L2Nu"  title="ZZ\rightarrow 2l2\nu" add="1" color="890" ls="1" lw="2" normf="1" xsection="0.713" PreselEff="0.153537153" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/ZZJetsTo2L2Nu_TopTreeID_2001_Skim_DoubleMuPt20_*to*.root"/>
+<d name="ZZJetsTo4L"     title="ZZ\rightarrow 4l"     add="1" color="900" ls="1" lw="2" normf="1" xsection="0.180" PreselEff="0.217989756" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/ZZJetsTo4L_TopTreeID_1994_Skim_DoubleMuPt20_*to*.root"/>
+
+ <d name="ST_t_tch"        title="t+jets (t-ch.)"         add="1" color="616" ls="1" lw="2" normf="1" xsection="56.4" PreselEff="0.000057595" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/T_t-channel_TopTreeID_1968_Skim_DoubleMuPt20_04102012_141821_1to38.root"/>
+ <d name="ST_tbar_tch"     title="\bar{t}+jets (t-ch.)"   add="1" color="618" ls="1" lw="2" normf="1" xsection="30.7" PreselEff="0.000005698" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/Tbar_t-channel_TopTreeID_2005_Skim_DoubleMuPt20_04102012_144821_1to19.root"/>
+ <d name="ST_t_tWch_DR"    title="t+jets (tW-ch.)"        add="1" color="620" ls="1" lw="2" normf="1" xsection="11.1" PreselEff="0.007737394" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/T_tW-channel-DR_TopTreeID_1964_Skim_DoubleMuPt20_04102012_142821_1to10.root"/>
+ <d name="ST_tbar_tWch_DR" title="\bar{t}+jets (tW-ch.)"  add="1" color="622" ls="1" lw="2" normf="1" xsection="11.1" PreselEff="0.007712117" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/Tbar_tW-channel-DR_TopTreeID_1963_Skim_DoubleMuPt20_04102012_145821_1to9.root"/>
+<!--
+ <d name="ST_t_tWch_DS"    title="t+jets (tW-ch.)"        add="1" color="620" ls="1" lw="2" normf="1" xsection="11.1" PreselEff="" NofPSEvts="-1" filenames=""/>
+ <d name="ST_tbar_tWch_DS" title="\bar{t}+jets (tW-ch.)"  add="1" color="622" ls="1" lw="2" normf="1" xsection="11.1" PreselEff="" NofPSEvts="-1" filenames=""/>
+-->
+<!--
+ <d name="multijets"title="Multi-jets"                    add="1" color="400" ls="1" lw="2" normf="1" xsection="XXX" PreselEff="" NofPSEvts="" filenames=""/>
+-->
+<!--
+ <d name="wjets"    title="W\rightarrow l\nu"             add="1" color="413" ls="1" lw="2" normf="1" xsection="XXX" PreselEff="XXX" NofPSEvts="1"  filenames=""/>
+-->
+
+<d name="ttjets"   title="t\bar{t}" add="1" color="633"  ls="1"  lw="2" normf="1" xsection="234" PreselEff="0.007567303" NofPSEvts="52394" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/TTJets_MassiveBinDECAY_TopTreeID_1967_Skim_DoubleMuPt20_26092012_162858_1to50.root"/>
+
+<d name="zjets"   title="Z/\gamma^{*}\rightarrow ll" add="1" color="858"  ls="1"  lw="2" normf="1" xsection="3532.71" PreselEff="0.132544432" NofPSEvts="-1" filenames="/user_mnt/user/ghammad/CMSSW_5_3_3_patch3/src/TopBrussels/TopTreeProducer/skimmer/DYJetsToLL_M-50_TopTreeID_1980_Skim_DoubleMuPt20_26092012_161858_*to*.root"/>
+<!--
+ <d name="Z_Jets_m10to50" title="Z/\gamma^{*}\rightarrow ll  (10<m_{ll}<50)" add="1"   color="868" ls="1"  lw="2" normf="1" xsection="XXX" PreselEff="XXX"  NofPSEvts="-1"  filenames=""/>
+-->
+<!--
+<d name="ttbar_fcnc" title="FCNC"        add="1"   color="2"  ls="1"  lw="2" normf="1" xsection="1.0"    NofEvts="5000" filenames="/home/gregory/AnalysisCode/CMSSW_53X/TopBrussels/TopTreeAnalysis/TopFCNC/rootfiles/TTbar_FCNC_8TeV_500k_CMSSW_526_LHE_StoreResults-TTJets_TuneZ2star_8TeV_madgraph_tauola_cff_py_GEN_FASTSIM_HLT_PU.root-0d50c43c063c5143eba7a6c9858e3504_21092012_122612_TOPTREE_1_1_tgl.root"/>
+-->
+</datasets>
+
+<analysis>
+<a type="Collections" PVCollection="PrimaryVertex" JetType="2" JetCollection="PFJets_selectedPatJetsPF2PAT" METType="2" METCollection="PFMET_patType1CorrectedPFMetPF2PAT" MuonCollection="Muons_selectedPatMuonsPF2PAT" ElectronCollection="Electrons_selectedPatElectronsPF2PAT" loadGenJetCollection="1" GenJetCollection="GenJets_ak5GenJetsNoNu" loadGenEventCollection="0" GenEventCollection="GenEvent" loadNPGenEventCollection="0" NPGenEventCollection="NPGenEvent" loadMCParticles="0" MCParticlesCollection="MCParticles" loadTrackMET="0" TrackMETCollection=""/>
+</analysis>
+

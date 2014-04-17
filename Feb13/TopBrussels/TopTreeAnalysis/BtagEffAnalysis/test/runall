@@ -1,0 +1,75 @@
+rm runall.time
+date >> runall.time
+
+sh cleanup
+
+echo "Type F uncF diffF uncdiffF Eb uncEb diffEb uncdiffEb XS uncXS diffXS uncdiffXS SF DiffSF" >> systematics/systematics_results_WP0.csv
+
+
+cd ../../; make btag -f Makefile.MacOSX; cd -; sh runbtagAnalysis.sh
+sh runbtagAnalysis.sh; sh compileTEX.sh
+
+#sh runbtagAnalysis.sh -2; sh compileTEX.sh
+#sh runbtagAnalysis.sh -3; sh compileTEX.sh
+
+sh runbtagAnalysis.sh 1; sh compileTEX.sh
+sh runbtagAnalysis.sh 2; sh compileTEX.sh
+
+sh runbtagAnalysis.sh 3; sh compileTEX.sh
+sh runbtagAnalysis.sh 4; sh compileTEX.sh
+
+sh runbtagAnalysis.sh 5; sh compileTEX.sh
+sh runbtagAnalysis.sh 6; sh compileTEX.sh
+
+# TTJets theory
+#sh runbtagAnalysis.sh 7; sh compileTEX.sh
+#sh runbtagAnalysis.sh 8; sh compileTEX.sh
+
+#sh runbtagAnalysis.sh 9; sh compileTEX.sh
+#sh runbtagAnalysis.sh 10; sh compileTEX.sh
+
+# WJets theory
+#sh runbtagAnalysis.sh 11; sh compileTEX.sh
+#sh runbtagAnalysis.sh 12; sh compileTEX.sh
+
+#sh runbtagAnalysis.sh 13; sh compileTEX.sh
+#sh runbtagAnalysis.sh 14; sh compileTEX.sh
+
+# BG COMP (WandZ)
+#sh runbtagAnalysis.sh 17; sh compileTEX.sh
+#sh runbtagAnalysis.sh 18; sh compileTEX.sh
+
+#sh runbtagAnalysis.sh 19; sh compileTEX.sh
+#sh runbtagAnalysis.sh 20; sh compileTEX.sh
+
+# top mass
+sh runbtagAnalysis.sh 24; sh compileTEX.sh
+sh runbtagAnalysis.sh 25; sh compileTEX.sh
+
+# right reg
+
+#rm -rfv FitOutput/ FitTemplates/
+
+cd ../../; make btag -f Makefile.MacOSX; cd -; sh runbtagAnalysis.sh 21
+sh runbtagAnalysis.sh 21; sh compileTEX.sh
+sh runbtagAnalysis.sh 22; sh compileTEX.sh
+sh runbtagAnalysis.sh 23; sh compileTEX.sh
+
+# UE
+#rm -rfv FitOutput/ FitTemplates/
+
+#cd ../../; make btag -f Makefile.MacOSX; cd -; sh runbtagAnalysis.sh 15
+#sh runbtagAnalysis.sh 15; sh compileTEX.sh
+#sh runbtagAnalysis.sh 16; sh compileTEX.sh
+
+# PDF UNC
+
+#rm -rfv FitOutput/ FitTemplates/
+
+#cd ../../; make btag -f Makefile.MacOSX; cd -; sh runbtagAnalysis.sh
+#sh runbtagAnalysis.sh; sh compileTEX.sh
+#for i in `jot 44 101 144`; do 
+#  sh runbtagAnalysis.sh $i; sh compileTEX.sh 
+#done
+
+date >> runall.time

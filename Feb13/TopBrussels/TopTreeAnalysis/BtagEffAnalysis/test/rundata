@@ -1,0 +1,11 @@
+rm *.tex -v
+rm -rfv FitOutput/ FitTemplates/
+#rm -rfv AnalysisResults
+
+cd ../../; make btag -f Makefile.MacOSX; cd -; sh runbtagAnalysis.sh 
+sh runbtagAnalysis.sh; sh compileTEX.sh 
+sh runbtagAnalysis.sh -8; sh compileTEX.sh 
+cp -v TTrees/DATA_6/NTupleAnalyzed.root store/mc.root
+sh runbtagAnalysis.sh -2; sh compileTEX.sh
+cp -v TTrees/DATA_6/NTupleAnalyzed.root store/data.root
+

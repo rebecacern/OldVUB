@@ -1,0 +1,7 @@
+cd ..
+cd ../../; make btag -f Makefile.MacOSX; cd -; sh runbtagAnalysis.sh
+cp TTrees/DATA_16/NTupleAnalyzed.root TTrees/MC.root
+cd ../../; make btag -f Makefile.MacOSX; cd -; sh runbtagAnalysis.sh -2
+cp TTrees/DATA_16/NTupleAnalyzed.root TTrees/DATA.root
+
+cd -

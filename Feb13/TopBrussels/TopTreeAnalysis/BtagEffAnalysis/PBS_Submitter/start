@@ -1,0 +1,9 @@
+if [ ! $# -eq 2 ]; then
+
+exit
+
+fi
+
+rm -rfv logs
+mkdir logs
+python PBS_TreeCreator.py -w $2 -t $1 -d ../TopTreeAnalysis/macros/ --srmcp -m michael.maes@vub.ac.be >> logs/ERROR.txt 2>&1 &
